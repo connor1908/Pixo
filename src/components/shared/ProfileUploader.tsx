@@ -1,0 +1,47 @@
+import { useCallback, useState } from "react";
+import { type FileWithPath, useDropzone } from "react-dropzone";
+
+type ProfileUploaderProps = {
+  fieldChange: (files: File[]) => void;
+  mediaUrl: string;
+};
+
+function ProfileUploader({ fieldChange, mediaUrl }: ProfileUploaderProps) {
+  const [file, setFile] = useState<File[]>([]);
+  const [fileUrl, setFileUrl] = useState<string>(mediaUrl);
+
+  const onDrop = useCallback(
+    (acceptedFiles: FileWithPath[]) => {
+      setFile(acceptedFiles);
+      fieldChange(acceptedFiles);
+      setFileUrl(URL.createObjectURL(acceptedFiles[0]));
+    },
+    [file]
+  );
+
+  const { getRootProps, getInputProps } = useDropzone({
+    onDrop,
+    accept: {
+      "image/*": [".png", ".jpeg", ".jpg"],
+    },
+  });
+
+  return (
+    <div {...getRootProps()}>
+      <input {...getInputProps()} className="cursor-pointer" />
+
+      <div className="gap-4 cursor-pointer flex-center">
+        <img
+          src={fileUrl || "/assets/profile-default-avatar.svg"}
+          alt="image"
+          className="object-cover object-top w-24 h-24 rounded-full"
+        />
+        <p className="text-primary-500 small-regular md:bbase-semibold">
+          Change profile photo
+        </p>
+      </div>
+    </div>
+  );
+}
+
+export default ProfileUploader;

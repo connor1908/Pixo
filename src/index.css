@@ -1,0 +1,310 @@
+/* @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"); */
+
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200..800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* My theme is based on Nothern Lights from tweakcn.com */
+
+@layer base {
+  * {
+    @apply box-border p-0 m-0 list-none border-border scroll-smooth;
+  }
+
+  body {
+    @apply min-h-screen text-foreground bg-background font-plus;
+  }
+  :root {
+    --background: 220 15% 12%;
+    --foreground: 0 0% 90%;
+    --card: 197 7% 20%;
+    --card-foreground: 0, 0%, 90%;
+    --popover: 197, 7%, 20%;
+    --popover-foreground: 0, 0%, 90%;
+    --primary: 140 53% 43%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 207 44% 49%;
+    --secondary-foreground: 0 0% 90%;
+    --muted: 0 0% 27%;
+    --muted-foreground: 0 0% 64%;
+    --accent: 219 79% 66%;
+    --accent-foreground: 0 0% 90%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 27%;
+    --input: 0 0% 27%;
+    --ring: 140 53% 43%;
+    /* --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    */
+    --radius: 0.5rem;
+  }
+  /* .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  } */
+}
+
+@layer utilities {
+  /* TYPOGRAPHY */
+  .h1-bold {
+    @apply text-[36px] font-bold leading-[140%] tracking-tighter;
+  }
+
+  .h1-semibold {
+    @apply text-[36px] font-semibold leading-[140%] tracking-tighter;
+  }
+
+  .h2-bold {
+    @apply text-[30px] font-bold leading-[140%] tracking-tighter;
+  }
+
+  .h3-bold {
+    @apply text-[24px] font-bold leading-[140%] tracking-tighter;
+  }
+
+  .base-semibold {
+    @apply text-[16px] font-semibold leading-[140%] tracking-tighter;
+  }
+
+  .base-medium {
+    @apply text-[16px] font-medium leading-[140%];
+  }
+
+  .base-regular {
+    @apply text-[16px] font-normal leading-[140%];
+  }
+
+  .body-bold {
+    @apply text-[18px] font-bold leading-[140%];
+  }
+
+  .body-medium {
+    @apply text-[18px] font-medium leading-[140%];
+  }
+
+  .small-semibold {
+    @apply text-[14px] font-semibold leading-[140%] tracking-tighter;
+  }
+
+  .small-medium {
+    @apply text-[14px] font-medium leading-[140%];
+  }
+
+  .small-regular {
+    @apply text-[14px] font-normal leading-[140%];
+  }
+
+  .subtle-semibold {
+    @apply text-[12px] font-semibold leading-[140%];
+  }
+
+  .tiny-medium {
+    @apply text-[10px] font-medium leading-[140%];
+  }
+
+  /* UTILITIES */
+  .invert-white {
+    @apply transition invert brightness-0;
+  }
+
+  .flex-center {
+    @apply flex items-center justify-center;
+  }
+
+  .flex-between {
+    @apply flex items-center justify-between;
+  }
+
+  .flex-start {
+    @apply flex items-center justify-start;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+    border-radius: 2px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: #09090a;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #34a85a;
+    border-radius: 50px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #89c99e;
+  }
+
+  .common-container {
+    @apply flex flex-col items-center flex-1 gap-10 px-5 py-10 overflow-y-auto md:px-8 lg:p-14 custom-scrollbar;
+  }
+
+  /* All Users */
+  .user-container {
+    @apply flex flex-col items-start w-full max-w-5xl gap-6 md:gap-9;
+  }
+
+  .user-grid {
+    @apply grid w-full max-w-5xl grid-cols-1 xs:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-7;
+  }
+
+  /* Explore */
+  .explore-container {
+    @apply flex flex-col items-center flex-1 px-5 py-10 overflow-y-auto md:p-14 custom-scrollbar;
+  }
+
+  .explore-inner_container {
+    @apply flex flex-col items-center w-full max-w-5xl gap-6 md:gap-9;
+  }
+
+  /* here we dont want default theme as  */
+  .explore-search {
+    @apply h-12 bg-muted border-none focus-visible:ring-0 focus-visible:ring-offset-0 ring-offset-0 !important;
+  }
+
+  /* Home */
+  .home-container {
+    @apply flex flex-col items-center flex-1 gap-10 px-5 py-10 overflow-y-auto custom-scrollbar;
+  }
+
+  .home-posts {
+    @apply flex flex-col items-center w-full max-w-screen-sm gap-6 md:gap-9;
+  }
+
+  .home-creators {
+    @apply flex-col hidden gap-10 px-6 py-10 overflow-scroll xl:flex w-72 2xl:w-465 custom-scrollbar;
+  }
+
+  /* Post Details */
+  .post_details-container {
+    @apply flex flex-col items-center flex-1 gap-10 px-5 py-10 overflow-y-auto custom-scrollbar;
+  }
+
+  /* xl:flex-row  xl:rounded-l-[24px]*/
+  .post_details-card {
+    @apply bg-background w-full max-w-5xl rounded-[30px] flex-col flex border border-muted;
+  }
+
+  /*  xl:w-[48%] xl:rounded-l-[24px] xl:rounded-tr-none  */
+  .post_details-img {
+    @apply h-80 lg:h-[480px] rounded-t-[30px] object-cover p-5 bg-background;
+  }
+
+  .post_details-info {
+    @apply bg-background flex flex-col gap-5 lg:gap-7 flex-1 items-start p-8 rounded-[30px];
+  }
+
+  /* hover:bg-transparent hover:text-light-1 text-light-1 */
+  .post_details-delete_btn {
+    @apply flex gap-3 p-0 small-medium lg:base-medium;
+  }
+
+  /* Profile */
+  .profile-container {
+    @apply flex flex-col items-center flex-1 gap-10 px-5 py-10 overflow-y-auto md:p-14 custom-scrollbar;
+  }
+
+  /* */
+  .profile-inner_container {
+    @apply flex flex-col items-center w-full max-w-5xl gap-8 md:mb-8 xl:items-start xl:flex-row;
+  }
+
+  .profile-tab {
+    @apply flex-1 w-48 gap-3 py-4 transition flex-center bg-dark-2 xl:flex-initial;
+  }
+
+  /* Saved */
+  .saved-container {
+    @apply flex flex-col items-center flex-1 gap-10 px-5 py-10 overflow-y-auto md:p-14 custom-scrollbar;
+  }
+
+  /* Bottom bar */
+  .bottom-bar {
+    @apply z-50 flex-between w-full sticky bottom-0 rounded-t-[20px] bg-background px-5 py-4 md:hidden;
+  }
+
+  /* File uploader */
+  .file_uploader-img {
+    @apply h-64 w-full rounded-[24px] object-contain;
+  }
+
+  .file_uploader-label {
+    @apply w-full p-4 text-center border-t text-muted-foreground small-regular border-t-muted-foreground;
+  }
+
+  .file_uploader-box {
+    @apply flex-col h-64 p-6 flex-center;
+  }
+
+  /* Grid Post List */
+  .grid-container {
+    @apply grid w-full max-w-5xl grid-cols-1 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-7;
+  }
+
+  .grid-post_link {
+    @apply flex rounded-[24px] border border-muted overflow-hidden cursor-pointer w-full h-full;
+  }
+
+  .grid-post_user {
+    @apply absolute bottom-0 p-5 flex-between w-full bg-gradient-to-t from-muted to-transparent rounded-b-[24px] gap-2;
+  }
+
+  /* Left sidebar */
+  .leftsidebar {
+    @apply hidden border-r border-muted md:flex px-6 py-10 flex-col justify-between min-w-[270px] bg-background;
+  }
+
+  .leftsidebar-link {
+    @apply transition rounded-lg base-medium;
+  }
+
+  /* Post Card */
+  .post-card {
+    @apply w-full max-w-screen-sm p-5 border bg-background rounded-3xl border-muted lg:p-7;
+  }
+
+  .post-card_img {
+    @apply h-64 xs:h-[300px] lg:h-[400px] w-full object-cover rounded-[24px];
+  }
+
+  /* Topbar */
+  .topbar {
+    @apply sticky top-0 z-50 w-full md:hidden bg-background;
+  }
+
+  /* User card */
+  .user-card {
+    @apply flex-center flex-col gap-4 border border-muted rounded-[20px] px-5 py-8;
+  }
+}
