@@ -187,13 +187,10 @@ export function useGetInfinitePosts() {
   return useInfiniteQuery({
     queryKey: [QUERY_KEYS.GET_INFINITE_POSTS],
     queryFn: getInfinitePosts,
+    initialPageParam: undefined,
     getNextPageParam: (lastPage) => {
-      if (lastPage && lastPage.documents.length === 0) return;
-
-      const lastPageId =
-        lastPage?.documents[lastPage.documents.length - 1]?.$id;
-
-      return lastPageId;
+      if (!lastPage || lastPage.documents.length === 0) return undefined;
+      return lastPage.documents[lastPage.documents.length - 1].$id; // string
     },
   });
 }
